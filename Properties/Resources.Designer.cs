@@ -61,7 +61,7 @@ namespace catpdf.Properties {
         }
         
         /// <summary>
-        ///   Reading {0} に類似しているローカライズされた文字列を検索します。
+        ///   Reading from {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ReadingMessage {
             get {
@@ -81,7 +81,7 @@ namespace catpdf.Properties {
         }
         
         /// <summary>
-        ///   Writing {0} に類似しているローカライズされた文字列を検索します。
+        ///   Writing to {1} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string WritingMessage {
             get {

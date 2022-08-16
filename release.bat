@@ -1,6 +1,7 @@
 @ECHO OFF
 
 REM 環境変数SIGNには sign.bat のパスをセットする
+REM sign.batは https://github.com/calc33/PSSigntools
 SET SIGN=C:\bin\sign.bat
 
 SET DBG=bin\Debug\catpdf.exe
@@ -19,7 +20,6 @@ IF "%TDBG%" GTR "%TREL%" (
 )
 
 :COPY
-REM MKDIR Release
 CMD /C %SIGN% bin\Release\catpdf.exe
 XCOPY /Y /S /I /EXCLUDE:exclude.txt bin\Release Release
 

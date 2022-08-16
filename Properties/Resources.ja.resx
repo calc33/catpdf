@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ReadingMessage" xml:space="preserve">
-    <value>{0} を読込中...</value>
+    <value>{0} を読込中</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Usage.ja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Usage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usage.ja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;shift_jis</value>
   </data>
   <data name="WritingMessage" xml:space="preserve">
-    <value>{0} を出力中...</value>
+    <value>{0} へ書込中</value>
   </data>
 </root>
