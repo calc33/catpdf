@@ -61,13 +61,31 @@ namespace catpdf.Properties {
         }
         
         /// <summary>
-        ///   catpdf &lt;file1.pdf&gt; [&lt;file2.pdf&gt; ...] -o merged.pdf
+        ///   Reading {0} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ReadingMessage {
+            get {
+                return ResourceManager.GetString("ReadingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   catpdf [-v] &lt;file1.pdf&gt; [&lt;file2.pdf&gt; ...] -o &lt;output.pdf&gt;
         ///
-        ///catpdf は複数のPDFファイルを連結して一つのPDFファイルにします に類似しているローカライズされた文字列を検索します。
+        ///catpdf concatenates multiple PDF files into a single PDF file に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Usage {
             get {
                 return ResourceManager.GetString("Usage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Writing {0} に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string WritingMessage {
+            get {
+                return ResourceManager.GetString("WritingMessage", resourceCulture);
             }
         }
     }

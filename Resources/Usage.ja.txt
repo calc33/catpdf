@@ -1,0 +1,3 @@
+catpdf [-v] <file1.pdf> [<file2.pdf> ...] -o <output.pdf>
+
+catpdf は複数のPDFファイルを連結して一つのPDFファイルにします

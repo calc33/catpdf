@@ -26,16 +26,15 @@ namespace catpdf
                         i++;
                         if (args.Length <= i)
                         {
-                            // -o の後にファイル名がない
+                            // missing filename after "-o"
                             throw new ShowUsageException();
                         }
                         if (OutputFileName != null)
                         {
-                            // -o を二重に指定した
+                            // double "-o"
                             throw new ShowUsageException();
                         }
-                        string outfile = args[i];
-                        OutputFileName = outfile;
+                        OutputFileName = args[i];
                         break;
                     case "-v":
                         LogDetail = true;
@@ -63,6 +62,22 @@ namespace catpdf
             }
             Console.Out.WriteLine(message);
         }
+        private void LogFormat(string format, object arg0)
+        {
+            if (!LogDetail)
+            {
+                return;
+            }
+            Console.Out.WriteLine(string.Format(format, arg0));
+        }
+        private void LogFormat(string format, params object[] args)
+        {
+            if (!LogDetail)
+            {
+                return;
+            }
+            Console.Out.WriteLine(string.Format(format, args));
+        }
 
         public void Execute()
         {
@@ -76,7 +91,7 @@ namespace catpdf
             {
                 foreach (string path in InputFileNames)
                 {
-                    Log(path + " を読込中");
+                    LogFormat(Properties.Resources.ReadingMessage, path);
                     PdfDocument source = PdfReader.Open(path, PdfDocumentOpenMode.Import);
                     try
                     {
@@ -90,43 +105,13 @@ namespace catpdf
                         source.Close();
                     }
                 }
-                Log(OutputFileName + " へ書出中");
+                LogFormat(Properties.Resources.WritingMessage, OutputFileName);
                 destination.Save(OutputFileName);
             }
             finally
             {
                 destination.Close();
             }
-            //if (File.Exists(OutputFileName))
-            //{
-            //    File.Delete(OutputFileName);
-            //}
-            //File.Copy(InputFileNames[0], OutputFileName);
-            //PdfDocument destination = PdfReader.Open(OutputFileName, PdfDocumentOpenMode.Modify);
-            //try
-            //{
-            //    for (int i = 1; i < InputFileNames.Length; i++)
-            //    {
-            //        PdfDocument source = PdfReader.Open(InputFileNames[i], PdfDocumentOpenMode.Import);
-            //        try
-            //        {
-
-            //            foreach (PdfPage page in source.Pages)
-            //            {
-            //                destination.AddPage(page);
-            //            }
-            //        }
-            //        finally
-            //        {
-            //            source.Close();
-            //        }
-            //    }
-            //    destination.Save(OutputFileName);
-            //}
-            //finally
-            //{
-            //    destination.Close();
-            //}
         }
     }
     public class ShowUsageException : Exception
